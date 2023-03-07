@@ -5,7 +5,7 @@ import { have } from "../lib";
 import { Requirement } from "../maximize";
 import { get } from "../property";
 import * as AsdonMartin from "../resources/2017/AsdonMartin";
-import { $familiar, $item, $items, $skill } from "../template-string";
+import { $effect, $familiar, $item, $items, $skill } from "../template-string";
 import {
   ActionSource,
   findActionSource,
@@ -88,6 +88,19 @@ const freeKillSources: ActionSource[] = [
     $skill`Lightning Strike`,
     () => (have($skill`Lightning Strike`) ? Math.floor(myLightning() / 20) : 0),
     Macro.skill($skill`Lightning Strike`)
+  ),
+
+  // Avatar of Shadows Over Loathing
+  new ActionSource(
+    $skill`Free-For-All`,
+    () =>
+      !have($effect`Everything Looks Red`) && have($skill`Free-For-All`)
+        ? 1
+        : 0,
+    Macro.skill($skill`Free-For-All`),
+    {
+      preparation: () => restoreMp(50),
+    }
   ),
 
   // Expensive limited sources

@@ -225,4 +225,17 @@ export const Paths = {
     $classes`Grey Goo`
   ),
   Journeyman: new Path("Journeyman", 45, false, false),
+  FallOfTheDinosaurs: new Path("Fall of the Dinosaurs", 46),
+  AvatarOfShadowsOverLoathing: new Path(
+    "Avatar of Shadows Over Loathing",
+    47,
+    false,
+    true,
+    true,
+    true,
+    15,
+    15,
+    15,
+    $classes`Pig Skinner, Cheese Wizard, Jazz Agent`
+  ),
 } as const;
